@@ -75,7 +75,7 @@ Students  and  both created  challenges. Because  is the maximum number of chall
 
 ## Answer (MySQL)
 
-
+```sql
 SELECT 
 aa.hacker_id, 
 aa.name, 
@@ -116,5 +116,6 @@ counter_challenges NOT IN(
 ) 
 ORDER BY counter_challenges DESC, aa.hacker_id ASC 
 
+```
 
 
