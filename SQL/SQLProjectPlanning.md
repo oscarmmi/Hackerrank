@@ -1,3 +1,6 @@
+![image](https://user-images.githubusercontent.com/23621801/158387937-aefc8df1-00d2-4d7d-9af9-c2053f3792e0.png)
+
+
 You are given a table, Projects, containing three columns: Task_ID, Start_Date and End_Date. 
 It is guaranteed that the difference between the End_Date and the Start_Date is equal to 1 day for each row in the table.
 
