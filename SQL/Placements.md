@@ -41,3 +41,23 @@ The name output, when ordered by the salary offered to their friends, will be:
 
 
 
+## Answer
+
+```sql
+SELECT 
+a.Name
+FROM Students a 
+JOIN Packages b ON(b.ID=a.ID) 
+JOIN (
+    SELECT
+    aa.ID, 
+    MAX(ab.Salary) AS Salary_Friend
+    FROM Friends aa 
+    JOIN Packages ab ON(ab.ID=aa.Friend_ID)
+    GROUP BY aa.ID
+) c ON(c.ID=a.ID) 
+WHERE 
+c.Salary_Friend>b.Salary
+ORDER BY c.Salary_Friend ASC 
+```
+
