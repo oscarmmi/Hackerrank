@@ -76,6 +76,39 @@ and total_accepted_submission is the number of submissions that achieved full sc
 
 ```sql
 
+SELECT
+a.contest_id, 
+a.hacker_id, 
+a.name, 
+SUM(d.total_submissions) as total_submissions_final, 
+SUM(d.total_accepted_submissions) as total_accepted_submissions_final, 
+SUM(e.total_views) as total_views_final, 
+SUM(e.total_unique_views) as total_unique_views_final
+FROM Contests a 
+JOIN Colleges b ON(b.contest_id=a.contest_id) 
+JOIN Challenges c ON(c.college_id=b.college_id) 
+LEFT JOIN (
+    SELECT
+    da.challenge_id, 
+    SUM(da.total_submissions) as total_submissions, 
+    SUM(da.total_accepted_submissions) as total_accepted_submissions
+    FROM Submission_Stats da 
+    GROUP BY da.challenge_id
+) d ON(d.challenge_id=c.challenge_id)
+LEFT JOIN (
+    SELECT 
+    ea.challenge_id, 
+    SUM(ea.total_views) as total_views, 
+    SUM(ea.total_unique_views) as total_unique_views
+    FROM View_Stats ea 
+    GROUP BY ea.challenge_id
+) e ON(e.challenge_id=c.challenge_id)
+GROUP BY a.contest_id, a.hacker_id, a.name
+HAVING 
+(total_submissions_final+total_accepted_submissions_final+
+total_views_final+total_unique_views_final)>0
+ORDER BY a.contest_id ASC 
+
 ```
 
 
