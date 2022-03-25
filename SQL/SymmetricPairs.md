@@ -16,6 +16,8 @@ Write a query to output all such symmetric pairs in ascending order by the value
 
 ![image](https://user-images.githubusercontent.com/23621801/158420397-3cea55f7-415d-4bfe-9c72-68ca51dc3b90.png)
 
+## Answer (MySQL)
+
 ```sql
 
 SELECT 
