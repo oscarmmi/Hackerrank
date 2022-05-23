@@ -51,4 +51,21 @@ The first line contains an integer, *x*, the segment length for analyzing the ro
 The second line contains an integer, *n*, the size of the array space. Each line of the subsequent lines (where *0 <= i < n*) contains an integer, *space[i]*
 
 
+## Sample Case 0
+
+### **Sample Input**
+
+![image](https://user-images.githubusercontent.com/23621801/169917439-853f33c2-f2f9-463d-95a4-f0c4873ea839.png)
+
+
+### **Sample Output**
+
+3
+
+
+## Explanation
+
+The subarrays of size *x = 1* are [1], [2], [3], [1] and [2]. Because each subarray only contains *1* element, each value is minimal with respect to the subarray it is in. The maximum of these values is *3*. Therefore, the answer is *3*.
+
+
 
