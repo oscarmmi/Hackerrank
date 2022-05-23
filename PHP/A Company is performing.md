@@ -22,3 +22,33 @@ the minima that are found during the analysis.
 In this array of computers, the subarrays of size 2 are (8, 2) and [2, 4]. Thus, the initial analysis returns 2 and 2 because those are the minima for the segments. 
 Finally, the maximum of these values is 2. Therefore, the answer is 2.
 
+## Function Description
+
+Complete the function *segment* in the editor below.
+
+*segment* has the following parameter(s):
+
+*int x:* the segment length to analyze
+
+*int space[n]:* the available hard disk space on each of the computers
+
+
+### Returns
+
+
+*int* the maximum of the minimum values of available hard disk space found while analyzing the computers in segments of numComps
+
+### **Constraints** 
+
+* 1 <= *n* <= 10^6
+* 1 <= *x* <= n
+* 1<= *space[i]* <= 10^9
+
+
+## Input Format for Custom Testing
+
+The first line contains an integer, *x*, the segment length for analyzing the row of computers. 
+The second line contains an integer, *n*, the size of the array space. Each line of the subsequent lines (where *0 <= i < n*) contains an integer, *space[i]*
+
+
+
