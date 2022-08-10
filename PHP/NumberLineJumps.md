@@ -33,13 +33,6 @@ kangaroo has the following parameter(s):
 A single line of four space-separated integers denoting the respective values of x1, v1, x2, and v2.
 
 
-
-```php
-
-
-```
-
-
 ![image](https://user-images.githubusercontent.com/23621801/183942578-670c4e8c-f0a0-4715-b6d7-22bba1be912f.png)
 
 From the image, it is clear that the kangaroos meet at the same location (number 12  on the number line) after same number of jumps ( jumps), and we print YES.
@@ -53,5 +46,73 @@ From the image, it is clear that the kangaroos meet at the same location (number
 The second kangaroo has a starting location that is ahead (further to the right) of the first kangaroo's starting location (i.e., x2 > x1). 
 Because the second kangaroo moves at a faster rate (meaning v2 > v1) and is already ahead of the first kangaroo, the first kangaroo will never be able to catch up. 
 Thus, we print NO.
+
+
+
+
+```php
+
+<?php
+
+/*
+ * Complete the 'kangaroo' function below.
+ *
+ * The function is expected to return a STRING.
+ * The function accepts following parameters:
+ *  1. INTEGER x1
+ *  2. INTEGER v1
+ *  3. INTEGER x2
+ *  4. INTEGER v2
+ */
+
+function kangaroo($x1, $v1, $x2, $v2) {
+    // Write your code here
+    $indicador = true;
+    $paso = 0;
+    $answer = 'NO';
+    if(!($x1>=0 && $x1<=10000) || !($x2>=0 && $x2<=10000)){
+        return 'NO';
+    }
+    if((!$v1>=1 && $v1<=10000)){
+        return 'NO';
+    }
+    if((!$v2>=1 && $v2<=10000)){
+        return 'NO';
+    }
+    while($indicador){
+        $salto1 = ($x1 + $v1 * $paso);
+        $salto2 = ($x2 + $v2 * $paso);
+        if($salto1 === $salto2){
+            $answer = 'YES';
+            break;
+        }
+        if($salto1 > 10000 || $salto2 > 10000){
+            break;
+        }
+        $paso++;
+    }
+    return $answer;
+}
+
+$fptr = fopen(getenv("OUTPUT_PATH"), "w");
+
+$first_multiple_input = explode(' ', rtrim(fgets(STDIN)));
+
+$x1 = intval($first_multiple_input[0]);
+
+$v1 = intval($first_multiple_input[1]);
+
+$x2 = intval($first_multiple_input[2]);
+
+$v2 = intval($first_multiple_input[3]);
+
+$result = kangaroo($x1, $v1, $x2, $v2);
+
+fwrite($fptr, $result . "\n");
+
+fclose($fptr);
+
+
+```
 
 
