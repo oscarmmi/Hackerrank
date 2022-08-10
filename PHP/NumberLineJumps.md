@@ -70,9 +70,6 @@ function kangaroo($x1, $v1, $x2, $v2) {
     $indicador = true;
     $paso = 0;
     $answer = 'NO';
-    if(!($x1>=0 && $x1<=10000) || !($x2>=0 && $x2<=10000)){
-        return 'NO';
-    }
     if((!$v1>=1 && $v1<=10000)){
         return 'NO';
     }
@@ -86,7 +83,7 @@ function kangaroo($x1, $v1, $x2, $v2) {
             $answer = 'YES';
             break;
         }
-        if($salto1 > 10000 || $salto2 > 10000){
+        if($salto1 > 100000000 || $salto2 > 100000000){
             break;
         }
         $paso++;
