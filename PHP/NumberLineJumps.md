@@ -33,6 +33,13 @@ kangaroo has the following parameter(s):
 A single line of four space-separated integers denoting the respective values of x1, v1, x2, and v2.
 
 
+
+```php
+
+
+```
+
+
 ![image](https://user-images.githubusercontent.com/23621801/183942578-670c4e8c-f0a0-4715-b6d7-22bba1be912f.png)
 
 From the image, it is clear that the kangaroos meet at the same location (number 12  on the number line) after same number of jumps ( jumps), and we print YES.
