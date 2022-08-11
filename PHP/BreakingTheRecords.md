@@ -37,7 +37,52 @@ The second line contains n space-separated integers describing the respective va
 
 ![image](https://user-images.githubusercontent.com/23621801/184253411-25e27c4b-010d-42ad-888a-0aa860b88006.png)
 
+```php
 
+<?php
+
+/*
+ * Complete the 'breakingRecords' function below.
+ *
+ * The function is expected to return an INTEGER_ARRAY.
+ * The function accepts INTEGER_ARRAY scores as parameter.
+ */
+
+function breakingRecords($scores) {
+    // Write your code here
+    $counterMax = 0;
+    $max = -1;
+    $counterMin = 0;
+    $min = 1000000000;
+    foreach($scores as $score){
+        if($score < $min){
+            $min = $score;
+            $counterMin++;
+        }
+        if($score > $max){
+            $max = $score;
+            $counterMax++;
+        }
+    }
+    return [($counterMax - 1), ($counterMin - 1)];
+}
+
+$fptr = fopen(getenv("OUTPUT_PATH"), "w");
+
+$n = intval(trim(fgets(STDIN)));
+
+$scores_temp = rtrim(fgets(STDIN));
+
+$scores = array_map('intval', preg_split('/ /', $scores_temp, -1, PREG_SPLIT_NO_EMPTY));
+
+$result = breakingRecords($scores);
+
+fwrite($fptr, implode(" ", $result) . "\n");
+
+fclose($fptr);
+
+
+```
 
 
 
