@@ -33,6 +33,18 @@ The second line describes arr as n space-separated integers, each a type number 
 ![image](https://user-images.githubusercontent.com/23621801/184928022-4cb77b47-f0f5-41fe-aeb4-fee2d21b253f.png)
 
 
+### Sample Output 0
+
+
+![image](https://user-images.githubusercontent.com/23621801/184928068-45b3dd84-23ab-41f6-b620-e6dcf75b4f9e.png)
+
+
+### Explanation 0
+
+![image](https://user-images.githubusercontent.com/23621801/184928142-5b18fad2-c11b-4378-81e9-c3e032763866.png)
+
+
+
 
 ```js
 
@@ -117,14 +129,3 @@ function main() {
 
 
 ```
-
-
-### Sample Output 0
-
-
-![image](https://user-images.githubusercontent.com/23621801/184928068-45b3dd84-23ab-41f6-b620-e6dcf75b4f9e.png)
-
-
-### Explanation 0
-
-![image](https://user-images.githubusercontent.com/23621801/184928142-5b18fad2-c11b-4378-81e9-c3e032763866.png)
