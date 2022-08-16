@@ -33,6 +33,92 @@ The second line describes arr as n space-separated integers, each a type number 
 ![image](https://user-images.githubusercontent.com/23621801/184928022-4cb77b47-f0f5-41fe-aeb4-fee2d21b253f.png)
 
 
+
+```js
+
+'use strict';
+
+const fs = require('fs');
+
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', function(inputStdin) {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', function() {
+    inputString = inputString.split('\n');
+
+    main();
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
+/*
+ * Complete the 'migratoryBirds' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts INTEGER_ARRAY arr as parameter.
+ */
+
+function migratoryBirds(arr) {
+    // Write your code here
+    let aIds = [];
+    let aCounter = [];
+    let max = -1;
+    let currentValue = 0;
+    arr.forEach(function (item){
+        let index = aIds.indexOf(item);
+        if(index>-1){
+            aCounter[index]++;
+            currentValue = aCounter[index];
+        }else{
+            aIds.push(item);
+            aCounter.push(0);
+        }
+        if(currentValue > max){
+            max = currentValue;
+        }
+    });
+    let aMax = [];
+    aCounter.forEach(function (item, index){
+        if(max == item){
+            aMax.push(aIds[index]);
+        }
+    });
+    if(aMax.length == 1){
+        return aMax[0];
+    }
+    aMax.sort(function(a, b) {
+        return a - b;
+    });
+    return aMax[0];
+}
+
+function main() {
+    const ws = fs.createWriteStream(process.env.OUTPUT_PATH);
+
+    const arrCount = parseInt(readLine().trim(), 10);
+
+    const arr = readLine().replace(/\s+$/g, '').split(' ').map(arrTemp => parseInt(arrTemp, 10));
+
+    const result = migratoryBirds(arr);
+
+    ws.write(result + '\n');
+
+    ws.end();
+}
+
+
+```
+
+
 ### Sample Output 0
 
 
